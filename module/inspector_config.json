@@ -1,0 +1,19 @@
+{
+	"modules": {
+		"display": {
+			"version": "2.0",
+			"config": {
+				"orientations": {
+					"android": "any",
+					"ipad": "any",
+					"iphone": "any"
+				},
+				"fullscreen": {
+					"android": true,
+					"ios": true,
+					"ios7": "webview-under-statusbar"
+				}
+			}
+		}
+	}
+}
