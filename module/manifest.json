@@ -1,7 +1,7 @@
 {
-	"description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-	"name": "display",
-	"platform_version": "v2.0.0",
-	"version": "2.3",
-	"changes": "* Add support for webview under statusbar fullscreen mode on iOS 7."
+    "changes": "* Add support for webview under statusbar fullscreen mode on iOS 7.", 
+    "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.", 
+    "name": "display", 
+    "platform_version": "v2.1.0", 
+    "version": "2.3"
 }
