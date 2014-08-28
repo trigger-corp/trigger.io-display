@@ -39,7 +39,8 @@
 				"ios7": {
 					"required": true,
 					"type": "string",
-					"enum": ["not-fullscreen", "no-statusbar", "webview-under-statusbar"]
+					"enum": ["not-fullscreen", "no-statusbar", "webview-under-statusbar"],
+					"description": "iOS devices after iOS 7"
 				},
 				"android": {
 					"required": false,

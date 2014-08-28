@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Trigger Corp. All rights reserved.
 //
 
+#import <WebKit/WebKit.h>
 #import "display_EventListener.h"
 #import "display_Util.h"
 
@@ -29,11 +30,19 @@
 	if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
 		if (![[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"not-fullscreen"]) {
 			[[ForgeApp sharedApp] hideStatusBarBox];
-			UIWebView *webView = [[ForgeApp sharedApp] webView];
-			UIEdgeInsets inset = webView.scrollView.contentInset;
-			UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
-			[webView.scrollView setContentInset:newInset];
-			[webView.scrollView setScrollIndicatorInsets:newInset];
+			if ([[ForgeApp sharedApp] useWKWebView] && NSClassFromString(@"WKWebView")) {
+				WKWebView *webView = (WKWebView*)[[ForgeApp sharedApp] webView];
+				UIEdgeInsets inset = webView.scrollView.contentInset;
+				UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
+				[webView.scrollView setContentInset:newInset];
+				[webView.scrollView setScrollIndicatorInsets:newInset];
+			} else {
+				UIWebView *webView = (UIWebView*)[[ForgeApp sharedApp] webView];
+				UIEdgeInsets inset = webView.scrollView.contentInset;
+				UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
+				[webView.scrollView setContentInset:newInset];
+				[webView.scrollView setScrollIndicatorInsets:newInset];
+			}
 		}
 	}
 }
