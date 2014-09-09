@@ -30,7 +30,7 @@
 	if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
 		if (![[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"not-fullscreen"]) {
 			[[ForgeApp sharedApp] hideStatusBarBox];
-			if ([[ForgeApp sharedApp] useWKWebView] && NSClassFromString(@"WKWebView")) {
+			if (NSClassFromString(@"WKWebView") && [[ForgeApp sharedApp] useWKWebView]) {
 				WKWebView *webView = (WKWebView*)[[ForgeApp sharedApp] webView];
 				UIEdgeInsets inset = webView.scrollView.contentInset;
 				UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
