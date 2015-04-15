@@ -47,6 +47,12 @@
 					"type": "boolean"
 				}
 			}
+		},
+		"statusbar background-colour": {
+			"type": "string",
+			"required": false,
+			"description": "The colour you'd like to set the status bar on supported devices (Android 5.0) - e.g. '#303045'",
+			"pattern":  "^#[\\da-fA-F]{6}$"
 		}
 	}
 }
