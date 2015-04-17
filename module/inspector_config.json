@@ -2,14 +2,7 @@
 	"modules": {},
 	"this_module": {
 		"config": {
-			"orientations": {
-				"android": "any",
-				"ipad": "any",
-				"iphone": "any"
-			},
-			"statusbar": {
-				"background-colour": "#ff0055"
-			}
+			"statusbar": {}
 		}
 	}
 }

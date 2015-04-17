@@ -8,12 +8,6 @@ The default is to allow for any orientation, with the content being re-drawn as 
 
 ##Config options
 
-###Orientations
-
-iPhone, iPad, Android
-:	Set the default orientation lock on a per platform basis.
-	These options can be set to any of `"any"`, `"portrait"` or `"landscape"` to limit the orientations usable by the app.
-
 ###Fullscreen
 
 Android, iOS 5 & 6
@@ -23,6 +17,17 @@ iOS 7+
 :   * `not-fullscreen`: equivalent to non-fullscreen operation on iOS 5 or 6; the statusbar is shown and has a background which can be customised with the [topbar](/modules/topbar/current/) module.
     * `no-statusbar`: equivalent to fullscreen operation on iOS 5 or 6: the statusbar is not shown at all
     * `webview-under-statusbar`: your app covers the full screen (as with `no-statusbar`), but the statusbar information is shown floating over it with a higher z-index.
+
+###Orientations
+
+iPhone, iPad, Android
+:	Set the default orientation lock on a per platform basis.
+	These options can be set to any of `"any"`, `"portrait"` or `"landscape"` to limit the orientations usable by the app.
+	
+###Statusbar
+
+Android 5.0 +
+:   Enter an RGB colour string, e.g. `"#FFFF00"` to set the colour of the status bar.
 
 ##API
 
@@ -45,4 +50,11 @@ limitations while your app is running with the following API.
 !param: success `function(value)` callback to be invoked when no errors occur
 !description: Allow any app orientation.
 !platforms: iOS, Android
+!param: error `function(content)` called with details of any error which may occur
+
+!method: forge.display.statusbar.setStatusBarColour(colourString, success, error)
+!description: Set the status bar colour.
+!platforms: Android 5.0+
+!param: colourString `String` RGB colour code, e.g. `#FFFF00`
+!param: success `function(value)` callback to be invoked when no errors occur
 !param: error `function(content)` called with details of any error which may occur
