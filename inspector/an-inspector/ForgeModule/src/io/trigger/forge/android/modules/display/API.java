@@ -34,6 +34,13 @@ public class API {
 			task.success();
 		}
 	}
+	public static void setStatusBarColour(final ForgeTask task, @ForgeParam("text") final String bgColour) {
+		ForgeApp.getActivity().runOnUiThread(new Runnable() {
+        public void run() {
+                whatever nefarious thing you're doin'
+        }
+});
+	}
 
 }
 
