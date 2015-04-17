@@ -39,6 +39,7 @@ public class API {
 		}
 	}
 	public static void setStatusBarColour(final ForgeTask task, @ForgeParam("text") final String bgColour) {
+		
 		ForgeApp.getActivity().runOnUiThread(new Runnable() {
         public void run() {
         	if (bgColour.length() == 0) {

@@ -57,7 +57,7 @@
 				"background-colour": {
 					"type": "string",
 					"required": false,
-					"description": "The colour you'd like to set your status bar to, e.g., #303045. Supported on Android 5.0",
+					"description": "The colour you'd like to set your status bar to, e.g., #303045. Android 5.0+ only.",
 					"pattern": "^#[\\da-fA-F]{6}$"
 				}
 			}
