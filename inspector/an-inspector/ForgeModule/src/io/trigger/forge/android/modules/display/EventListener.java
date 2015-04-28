@@ -29,6 +29,9 @@ public class EventListener extends ForgeEventListener {
 				API.orientation_forceLandscape(null);
 			}
 		}
-		
+		if (config.has("statusbar") && config.getAsJsonObject("statusbar").has("background-colour")) {
+			API.setStatusBarColour(null, config.getAsJsonObject("statusbar").get("background-colour").getAsString());
+		}
 	}
+	
 }

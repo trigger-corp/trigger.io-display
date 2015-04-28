@@ -49,6 +49,21 @@ if (forge.is.mobile()) {
 			start();
 		});
 	});
-}
+	asyncTest("Change status bar background colour", 1, function() {
+		var colourString = prompt("Enter a colour string e.g. #ff00ff", "#ff00ff");
 
-		
+
+		forge.display.statusbar.setStatusBarColour(colourString, function () {
+			askQuestion("Did the status bar change colour?", { Yes: function () {
+				ok(true, "User claims success");
+				start();
+			}, No: function () {
+				ok(false, "User claims failure");
+				start();
+			}});
+		}, function () {
+			ok(false, "Error");
+			start();
+		});
+	});
+}
