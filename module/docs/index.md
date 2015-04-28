@@ -26,8 +26,8 @@ iPhone, iPad, Android
 	
 ###Statusbar
 
-Android 5.0 +
-:   Enter an RGB colour string, e.g. `"#FFFF00"` to set the colour of the status bar.
+Background Color
+:   Enter an RGB color string, e.g. `"#FFFF00"` to set the color of the status bar. (Android 5.0+ only)
 
 ##API
 
@@ -52,9 +52,9 @@ limitations while your app is running with the following API.
 !platforms: iOS, Android
 !param: error `function(content)` called with details of any error which may occur
 
-!method: forge.display.statusbar.setStatusBarColour(colourString, success, error)
-!description: Set the status bar colour.
+!method: forge.display.setStatusBarColor(color, success, error)
+!description: Set the status bar color.
 !platforms: Android 5.0+
-!param: colourString `String` RGB colour code, e.g. `#FFFF00`
+!param: color `array` an array of three integers in the range [0,255] that make up the RGB color of the topbar. For example, opaque red is [255, 0, 0].
 !param: success `function(value)` callback to be invoked when no errors occur
 !param: error `function(content)` called with details of any error which may occur

@@ -2,7 +2,19 @@
 	"modules": {},
 	"this_module": {
 		"config": {
-			"statusbar": {}
+			"statusbar": {
+				"background-color": "#ff0000"
+			},
+			"orientations": {
+				"android": "any",
+				"ipad": "any",
+				"iphone": "any"
+			},
+			"fullscreen": {
+				"android": false,
+				"ios": true,
+				"ios7": "webview-under-statusbar"
+			}
 		}
 	}
 }

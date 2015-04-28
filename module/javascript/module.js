@@ -10,9 +10,7 @@ forge['display'] = {
 			forge.internal.call("display.orientation_allowAny", {}, success, error);
 		}
 	},
-	'statusbar': {
-		'setStatusBarColour': function (text, success, error) {
-			forge.internal.call("display.setStatusBarColour", {text: text}, success, error);
-		}
+	'setStatusBarColor': function (color, success, error) {
+		forge.internal.call("display.setStatusBarColor", {color: color}, success, error);
 	}
 };

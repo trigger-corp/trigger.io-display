@@ -2,10 +2,12 @@ package io.trigger.forge.android.modules.display;
 
 import com.google.gson.JsonObject;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.core.ForgeEventListener;
+import io.trigger.forge.android.core.ForgeLog;
 
 public class EventListener extends ForgeEventListener {
 	@Override
@@ -29,8 +31,13 @@ public class EventListener extends ForgeEventListener {
 				API.orientation_forceLandscape(null);
 			}
 		}
-		if (config.has("statusbar") && config.getAsJsonObject("statusbar").has("background-colour")) {
-			API.setStatusBarColour(null, config.getAsJsonObject("statusbar").get("background-colour").getAsString());
+		if (config.has("statusbar") && config.getAsJsonObject("statusbar").has("background-color")) {
+			try {
+				int color = Color.parseColor(config.getAsJsonObject("statusbar").get("background-color").getAsString());
+				Util.setStatusBarColor(color);
+			} catch (IllegalArgumentException e) {
+				ForgeLog.e("Invalid color string for statusbar.background-color: " + e.getMessage());
+			}
 		}
 	}
 	

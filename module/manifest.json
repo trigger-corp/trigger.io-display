@@ -1,8 +1,8 @@
 {
-	"changes": "* Support arm64 devices running iOS 8\n* Supports 'setStatusBarColor' for Android 5.0+.",
+	"changes": "* New Config Option for Android 5.0+: `statusbar.background-color`\n* New API for Android 5.0+: `setStatusBarColor`",
 	"description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
 	"min_platform_version": "v2.1.0",
 	"namespace": "display",
 	"platform_version": "v2.2.0",
-	"version": "2.5.1"
+	"version": "2.5"
 }

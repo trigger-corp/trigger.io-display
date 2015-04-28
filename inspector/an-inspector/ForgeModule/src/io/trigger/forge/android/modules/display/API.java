@@ -1,5 +1,7 @@
 package io.trigger.forge.android.modules.display;
 
+import com.google.gson.JsonArray;
+
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.core.ForgeParam;
 import io.trigger.forge.android.core.ForgeTask;
@@ -38,34 +40,14 @@ public class API {
 			task.success();
 		}
 	}
-	public static void setStatusBarColour(final ForgeTask task, @ForgeParam("text") final String bgColour) {
-		
-		ForgeApp.getActivity().runOnUiThread(new Runnable() {
-        public void run() {
-        	if (bgColour.length() == 0) {
-        		task.error("invalid bgColour string: zero length");
-        		return;
-        	}
-        	int colourInt = -1;
-        	try {
-        		colourInt = Color.parseColor(bgColour);
-        	}
-        	catch (IllegalArgumentException e) {
-        		task.error("invalid bgColour string: " + bgColour + " valid e.g. '#ffff00'");
-        		return;
-        	}
-        	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        	    Window window = ForgeApp.getActivity().getWindow();
-        	    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        	    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        	    window.setStatusBarColor(colourInt);
-        	}
-        }
-		});
-		if (task != null) {
-			task.success();
+	public static void setStatusBarColor(final ForgeTask task, @ForgeParam("color") final JsonArray colorArray) {
+		if (colorArray.size() != 3) {
+			task.error("invalid color array, expecting: [r, g, b]");
+			return;
 		}
+		int color = Color.rgb(colorArray.get(0).getAsInt(), colorArray.get(1).getAsInt(), colorArray.get(2).getAsInt());
+		Util.setStatusBarColor(color);
+		task.success();
 	}
-
 }
 
