@@ -1,8 +1,8 @@
 {
-	"changes": "* New Config Option for Android 5.0+: `statusbar.background-color`\n* New API for Android 5.0+: `setStatusBarColor`",
+	"changes": "* New API's to control device sleep behaviour: `enableWakeLock`, `disableWakeLock`",
 	"description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-	"min_platform_version": "v2.1.0",
+	"min_platform_version": "v2.5.1",
 	"namespace": "display",
-	"platform_version": "v2.2.0",
-	"version": "2.5"
+	"platform_version": "v2.5.1",
+	"version": "2.6"
 }

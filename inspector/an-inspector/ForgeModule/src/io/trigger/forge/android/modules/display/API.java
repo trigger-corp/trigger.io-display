@@ -49,5 +49,19 @@ public class API {
 		Util.setStatusBarColor(color);
 		task.success();
 	}
+	public static void setWakeLock(final ForgeTask task, @ForgeParam("enabled") final boolean enabled) {
+		task.performUI(new Runnable() {
+			@Override
+			public void run() {
+				if (enabled) {
+					ForgeApp.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+				} else {
+					ForgeApp.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+				}
+			}
+		});
+		task.success();
+	}
 }
+
 

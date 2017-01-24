@@ -1,6 +1,40 @@
+/* global module, forge, asyncTest, askQuestion, ok, start */
+
 module("forge.display");
 
 if (forge.is.mobile()) {
+	asyncTest("Wake lock enabled", 1, function() {
+		forge.display.enableWakeLock(function () {
+			askQuestion("Does the app go to sleep?", {
+				Yes: function () {
+					ok(false, "User claims failure");
+					start();
+				}, No: function () {
+					ok(true, "User claims success");
+					start();
+				}
+			});
+		}, function (e) {
+			ok(false, "Error: " + JSON.stringify(e));
+		});
+	});
+
+	asyncTest("Wake lock disabled", 1, function() {
+		forge.display.disableWakeLock(function () {
+			askQuestion("Does the app go to sleep?", {
+				Yes: function () {
+					ok(true, "User claims success");
+					start();
+				}, No: function () {
+					ok(false, "User claims failure");
+					start();
+				}
+			});
+		}, function (e) {
+			ok(false, "Error: " + JSON.stringify(e));
+		});
+	});
+
 	asyncTest("Initial orientation", 1, function() {
 		askQuestion("Does the app rotate freely?", {Yes: function () {
 			ok(true, "User claims success");

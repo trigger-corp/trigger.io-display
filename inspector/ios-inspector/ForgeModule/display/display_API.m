@@ -26,4 +26,9 @@
 	[task success:nil];
 }
 
++ (void)setWakeLock:(ForgeTask*)task enabled:(NSNumber*)enabled{
+    [[UIApplication sharedApplication] setIdleTimerDisabled:[enabled boolValue]];
+    [task success:nil];
+}
+
 @end
