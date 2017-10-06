@@ -12,48 +12,19 @@
 
 @implementation display_EventListener
 
-+ (void)application:(UIApplication *)application preDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
-	if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-		if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
-			[ForgeApp sharedApp].webviewTop -= 20;
-		}
-	} else {
-		if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios"] boolValue]) {
-			[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
-		}
-	}
-}
 
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
-	if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
-		if (![[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"not-fullscreen"]) {
-			[[ForgeApp sharedApp] hideStatusBarBox];
-			if (NSClassFromString(@"WKWebView") && [[ForgeApp sharedApp] useWKWebView]) {
-				WKWebView *webView = (WKWebView*)[[ForgeApp sharedApp] webView];
-				UIEdgeInsets inset = webView.scrollView.contentInset;
-				UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
-				[webView.scrollView setContentInset:newInset];
-				[webView.scrollView setScrollIndicatorInsets:newInset];
-			} else {
-				UIWebView *webView = (UIWebView*)[[ForgeApp sharedApp] webView];
-				UIEdgeInsets inset = webView.scrollView.contentInset;
-				UIEdgeInsets newInset = UIEdgeInsetsMake(inset.top - 20.0, inset.left, inset.bottom, inset.right);
-				[webView.scrollView setContentInset:newInset];
-				[webView.scrollView setScrollIndicatorInsets:newInset];
-			}
-		}
+
+	if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
+		ForgeApp.sharedApp.viewController.statusBarHidden = YES;
+	}
+
+	if (![[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"not-fullscreen"]) {
+		ForgeApp.sharedApp.viewController.contentInsetAdjustmentBehavior = ForgeContentInsetAdjustmentAlways;
 	}
 }
 
-+ (NSNumber *)prefersStatusBarHidden {
-	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
-	if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
-		return @YES;
-	}
-	return nil;
-}
 
 + (NSNumber*)supportedInterfaceOrientations {
 	if ([display_Util isAllowedOrientation:@"any"]) {
@@ -66,6 +37,7 @@
 		return nil;
 	}
 }
+
 
 + (NSNumber*)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	BOOL portrait = interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown;

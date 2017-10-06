@@ -1,8 +1,8 @@
 {
-	"changes": "* New API's to control device sleep behaviour: `enableWakeLock`, `disableWakeLock`",
-	"description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-	"min_platform_version": "v2.5.1",
-	"namespace": "display",
-	"platform_version": "v2.5.1",
-	"version": "2.6"
+    "changes": "* iPhone-X Support",
+    "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
+    "min_platform_version": "v2.6.2",
+    "namespace": "display",
+    "platform_version": "v2.6.2",
+    "version": "2.7.0"
 }
