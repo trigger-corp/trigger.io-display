@@ -10,26 +10,14 @@
 #import "display_EventListener.h"
 #import "display_Util.h"
 
-// workaround for iOS 11 bug that does not update UI metrics during didFinishLaunchingWithOptions
-static long insetAdjustmentBehavior;
-
 @implementation display_EventListener
 
 
-+ (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	insetAdjustmentBehavior = ForgeApp.sharedApp.viewController.contentInsetAdjustmentBehavior;
++ (void)application:(UIApplication *)application postDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
 	if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
 		ForgeApp.sharedApp.viewController.statusBarHidden = YES;
-		// force update screen metrics
-		ForgeApp.sharedApp.viewController.contentInsetAdjustmentBehavior = ForgeContentInsetAdjustmentNever;
 	}
-}
-
-
-+ (void)firstWebViewLoad {
-	// restore configured inset value
-	ForgeApp.sharedApp.viewController.contentInsetAdjustmentBehavior = insetAdjustmentBehavior;
 }
 
 
