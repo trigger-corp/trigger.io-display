@@ -17,6 +17,7 @@
 	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
 	if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
 		ForgeApp.sharedApp.viewController.statusBarHidden = YES;
+		ForgeApp.sharedApp.viewController.statusBarTransparent = YES;
 	}
 }
 
