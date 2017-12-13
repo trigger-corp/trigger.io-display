@@ -1,66 +1,66 @@
 {
-	"type": "object",
-	"additionalProperties": false,
-	"properties": {
-		"orientations": {
-			"description": "Limit the orientations to which your app will rotate.",
-			"required": false,
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"iphone": {
-					"required": true,
-					"type": "string",
-					"enum": ["any", "portrait", "landscape"]
-				},
-				"ipad": {
-					"required": true,
-					"type": "string",
-					"enum": ["any", "portrait", "landscape"]
-				},
-				"android": {
-					"required": true,
-					"type": "string",
-					"enum": ["any", "portrait", "landscape"]
-				}
-			}
-		},
-		"fullscreen": {
-			"description": "Force your app to launch in fullscreen mode on supported devices.",
-			"required": false,
-			"type": "object",
-			"additionalProperties": false,
-			"properties": {
-				"ios": {
-					"required": false,
-					"type": "boolean",
-					"description": "iOS devices before iOS 7"
-				},
-				"ios7": {
-					"required": true,
-					"type": "string",
-					"enum": ["not-fullscreen", "no-statusbar", "webview-under-statusbar"],
-					"description": "iOS devices after iOS 7"
-				},
-				"android": {
-					"required": false,
-					"type": "boolean"
-				}
-			}
-		},
-		"statusbar": {
-			"required": false,
-			"description": "Set statusbar properties where supported.",
-			"additionalProperties": false,
-			"type": "object",
-			"properties": {
-				"background-color": {
-					"type": "string",
-					"required": false,
-					"description": "The color you'd like to set your status bar to, e.g., #303045. Android 5.0+ only.",
-					"pattern": "^#[\\da-fA-F]{6}$"
-				}
-			}
-		}
-	}
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "orientations": {
+            "description": "Limit the orientations to which your app will rotate.",
+            "required": false,
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "iphone": {
+                    "required": true,
+                    "type": "string",
+                    "enum": ["any", "portrait", "landscape"]
+                },
+                "ipad": {
+                    "required": true,
+                    "type": "string",
+                    "enum": ["any", "portrait", "landscape"]
+                },
+                "android": {
+                    "required": true,
+                    "type": "string",
+                    "enum": ["any", "portrait", "landscape"]
+                }
+            }
+        },
+        "fullscreen": {
+            "description": "Force your app to launch in fullscreen mode on supported devices.",
+            "required": false,
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ios": {
+                    "required": false,
+                    "type": "boolean",
+                    "description": "iOS devices before iOS 7"
+                },
+                "ios7": {
+                    "required": false,
+                    "type": "string",
+                    "enum": ["not-fullscreen", "no-statusbar", "webview-under-statusbar"],
+                    "description": "iOS devices after iOS 7"
+                },
+                "android": {
+                    "required": false,
+                    "type": "boolean"
+                }
+            }
+        },
+        "statusbar": {
+            "required": false,
+            "description": "Set statusbar properties where supported.",
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "background-color": {
+                    "type": "string",
+                    "required": false,
+                    "description": "The color you'd like to set your status bar to, e.g., #303045. Android 5.0+ only.",
+                    "pattern": "^#[\\da-fA-F]{6}$"
+                }
+            }
+        }
+    }
 }

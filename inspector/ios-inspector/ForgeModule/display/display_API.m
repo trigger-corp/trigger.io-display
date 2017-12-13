@@ -12,18 +12,22 @@
 @implementation display_API
 
 + (void)orientation_forcePortrait:(ForgeTask*)task {
-	[display_Util setAllowedOrientation:@"portrait"];
-	[task success:nil];
+	[display_Util setAllowedOrientation:@"portrait" completion:^{
+        [task success:nil];
+    }];
+
 }
 
 + (void)orientation_forceLandscape:(ForgeTask*)task {
-	[display_Util setAllowedOrientation:@"landscape"];
-	[task success:nil];
+	[display_Util setAllowedOrientation:@"landscape" completion:^{
+        [task success:nil];
+    }];
 }
 
 + (void)orientation_allowAny:(ForgeTask*)task {
-	[display_Util setAllowedOrientation:@"any"];
-	[task success:nil];
+	[display_Util setAllowedOrientation:@"any" completion:^{
+        [task success:nil];
+    }];
 }
 
 + (void)setWakeLock:(ForgeTask*)task enabled:(NSNumber*)enabled{

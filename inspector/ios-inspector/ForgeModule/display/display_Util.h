@@ -10,7 +10,7 @@
 
 @interface display_Util : NSObject
 
-+ (BOOL)isAllowedOrientation:(NSString*)orientation;
-+ (void)setAllowedOrientation:(NSString*)orientation;
++ (BOOL)isAllowedOrientation:(NSString* _Nonnull)orientation;
++ (void)setAllowedOrientation:(NSString* _Nonnull)orientation completion:(void (^__nullable)(void))completion;
 
 @end

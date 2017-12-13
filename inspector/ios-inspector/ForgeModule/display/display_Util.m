@@ -30,17 +30,21 @@ NSString *allowedOrientations = nil;
 	}
 }
 
-+ (void)setAllowedOrientation:(NSString *)orientation {
+
++ (void)setAllowedOrientation:(NSString *)orientation completion:(void (^__nullable)(void))completion {
 	allowedOrientations = orientation;
-	
-	// Force orientation update
+
 	dispatch_async(dispatch_get_main_queue(), ^{
-		if ([[ForgeApp sharedApp] viewController].modalViewController == nil) {
-			UIViewController *c = [[UIViewController alloc] init];
-			
-			[[[ForgeApp sharedApp] viewController] presentModalViewController:c animated:NO];
-			[[[ForgeApp sharedApp] viewController] dismissModalViewControllerAnimated:NO];
-		}
+        if ([display_Util isAllowedOrientation:@"any"]) {
+            // do nothing
+        } else if ([display_Util isAllowedOrientation:@"portrait"]) {
+            NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+            [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+        } else if ([display_Util isAllowedOrientation:@"landscape"]) {
+            NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+            [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+        }
+        completion();
 	});
 }
 

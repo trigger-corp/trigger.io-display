@@ -1,8 +1,8 @@
 {
-    "changes": "* Fixed: WebView inset stopped refreshing when status bar is hidden",
+    "changes": "* Fixed: Under some conditions the WebView insets weren't being updated when iOS orientation policy changed.",
     "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-    "min_platform_version": "v2.6.3",
+    "min_platform_version": "v2.6.4",
     "namespace": "display",
-    "platform_version": "v2.6.3",
-    "version": "2.8"
+    "platform_version": "v2.6.4",
+    "version": "2.9"
 }
