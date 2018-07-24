@@ -15,7 +15,23 @@
 
 + (void)application:(UIApplication *)application postDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	NSDictionary* config = [[ForgeApp sharedApp] configForPlugin:@"display"];
-	if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
+
+	// statusbar.ios.transparent
+	if ([[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"transparent"]) {
+		BOOL transparent = [[[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"transparent"] boolValue];
+		ForgeApp.sharedApp.viewController.statusBarHidden = transparent;
+	}
+
+	// statusbar.ios.hidden
+	if ([[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"hidden"]) {
+		BOOL hidden = [[[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"hidden"] boolValue];
+		ForgeApp.sharedApp.viewController.statusBarHidden = hidden;
+		if (hidden) {
+			ForgeApp.sharedApp.viewController.statusBarTransparent = YES;
+		}
+
+	// DEPRECATED: fullscreen.ios7 - renamed to statusbar.ios.hidden
+	} else if ([[[config objectForKey:@"fullscreen"] objectForKey:@"ios7"] isEqualToString:@"no-statusbar"]) {
 		ForgeApp.sharedApp.viewController.statusBarHidden = YES;
 		ForgeApp.sharedApp.viewController.statusBarTransparent = YES;
 	}

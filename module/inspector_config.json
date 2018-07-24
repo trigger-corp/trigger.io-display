@@ -3,26 +3,29 @@
     "this_module": {
         "config": {
             "statusbar": {
-                "hidden": true,
-                "transparent": false,
-                "webview-under-statusbar": false,
-                "background-color": "#ff0000"
+                "android": {
+                    "hidden": true,
+                    "transparent": false,
+                    "background-color": "#ff0000"
+                },
+                "ios": {
+                    "hidden": true,
+                    "transparent": true
+                }
             },
             "orientations": {
                 "android": "any",
                 "ipad": "any",
                 "iphone": "any"
-            },
-            "fullscreen": {
-                "android": true,
-                "ios": true,
-                "ios7": "no-statusbar"
             }
         }
     },
     "core": {
         "general": {
             "ios": {
+                "adjust_content_insets": "always"
+            },
+            "android": {
                 "adjust_content_insets": "always"
             }
         }

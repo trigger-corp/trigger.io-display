@@ -46,34 +46,61 @@
                     "required": false,
                     "type": "boolean"
                 }
-            }
+            },
+            "_hide": true
         },
         "statusbar": {
             "required": false,
-            "description": "Set statusbar properties where supported.",
+            "description": "Set statusbar properties.",
             "additionalProperties": false,
             "type": "object",
             "properties": {
-                "hidden": {
+                "android": {
                     "required": false,
-                    "type": "boolean",
-                    "description": "Hides the status bar where supported."
+                    "additionalProperties": false,
+                    "type": "object",
+                    "properties": {
+                        "hidden": {
+                            "required": false,
+                            "type": "boolean",
+                            "description": "Hides the status bar on supported devices."
+                        },
+                        "transparent": {
+                            "required": false,
+                            "type": "boolean",
+                            "description": "Sets status bar transparency on supported devices."
+                        },
+                        "background-color": {
+                            "type": "string",
+                            "required": false,
+                            "description": "The color you'd like to set your status bar to, e.g., #303045. Android 5.0+ only.",
+                            "pattern": "^#[\\da-fA-F]{6}$"
+                        }
+                    }
                 },
-                "transparent": {
+                "ios": {
                     "required": false,
-                    "type": "boolean",
-                    "description": "Sets status bar transparency where supported."
-                },
-                "webview-under-statusbar": {
-                    "required": false,
-                    "type": "boolean",
-                    "description": "Allow webview content to extend under status bar where supported."
+                    "additionalProperties": false,
+                    "type": "object",
+                    "properties": {
+                        "hidden": {
+                            "required": false,
+                            "type": "boolean",
+                            "description": "Hides the iOS status bar."
+                        },
+                        "transparent": {
+                            "required": false,
+                            "type": "boolean",
+                            "description": "Sets iOS status bar transparency."
+                        }
+                    }
                 },
                 "background-color": {
                     "type": "string",
                     "required": false,
-                    "description": "The color you'd like to set your status bar to, e.g., #303045. Android 5.0+ only.",
-                    "pattern": "^#[\\da-fA-F]{6}$"
+                    "description": "Deprecated: Use statusbar.android.background-color instead",
+                    "pattern": "^#[\\da-fA-F]{6}$",
+                    "_hide": true
                 }
             }
         }
