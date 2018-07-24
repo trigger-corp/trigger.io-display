@@ -13,8 +13,6 @@ import io.trigger.forge.android.core.ForgeViewController;
 public class EventListener extends ForgeEventListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        ForgeLog.d("display.ForgeEventListener.onCreate");
-
         JsonObject config = ForgeApp.configForPlugin("display");
 
         // statusbar.android.hidden
