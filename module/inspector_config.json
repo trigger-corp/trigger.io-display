@@ -3,6 +3,9 @@
     "this_module": {
         "config": {
             "statusbar": {
+                "hidden": true,
+                "transparent": false,
+                "webview-under-statusbar": false,
                 "background-color": "#ff0000"
             },
             "orientations": {
@@ -11,7 +14,7 @@
                 "iphone": "any"
             },
             "fullscreen": {
-                "android": false,
+                "android": true,
                 "ios": true,
                 "ios7": "no-statusbar"
             }

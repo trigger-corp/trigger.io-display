@@ -26,7 +26,7 @@
             }
         },
         "fullscreen": {
-            "description": "Force your app to launch in fullscreen mode on supported devices.",
+            "description": "Deprecated. Use `statusbar` option instead.",
             "required": false,
             "type": "object",
             "additionalProperties": false,
@@ -54,6 +54,21 @@
             "additionalProperties": false,
             "type": "object",
             "properties": {
+                "hidden": {
+                    "required": false,
+                    "type": "boolean",
+                    "description": "Hides the status bar where supported."
+                },
+                "transparent": {
+                    "required": false,
+                    "type": "boolean",
+                    "description": "Sets status bar transparency where supported."
+                },
+                "webview-under-statusbar": {
+                    "required": false,
+                    "type": "boolean",
+                    "description": "Allow webview content to extend under status bar where supported."
+                },
                 "background-color": {
                     "type": "string",
                     "required": false,

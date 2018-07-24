@@ -1,8 +1,8 @@
 {
-    "changes": "* Android support for `forge.display.enableWakeLock` & `forge.display.disableWakeLock` methods.",
+    "changes": "* Only use this version with the v2.7 betas\n* `fullscreen` config section deprecated in favor of new config section: `statusbar`\n* Android 'P' support",
     "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-    "min_platform_version": "v2.6.4",
+    "min_platform_version": "v2.7.1beta-1",
     "namespace": "display",
-    "platform_version": "v2.6.4",
-    "version": "2.10"
+    "platform_version": "v2.7.1beta-1",
+    "version": "2.11"
 }
