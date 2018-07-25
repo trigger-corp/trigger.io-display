@@ -35,6 +35,26 @@
 		ForgeApp.sharedApp.viewController.statusBarHidden = YES;
 		ForgeApp.sharedApp.viewController.statusBarTransparent = YES;
 	}
+
+	NSLog(@"1");
+
+	// statusbar.ios.style
+	if ([[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"style"]) {
+		NSLog(@"2");
+		NSString *style = [[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"style"];
+		NSLog(@"3");
+		if ([style isEqualToString:@"light_content"] || [style isEqualToString:@"UIStatusBarStyleLightContent"]) {
+			NSLog(@"3a");
+			ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleLightContent;
+		} else if ([style isEqualToString:@"default"] ||[style isEqualToString:@"UIStatusBarStyleDefault"]) {
+			NSLog(@"3b");
+			ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleDefault;
+		}
+		NSLog(@"4");
+	}
+	NSLog(@"5");
+
+
 }
 
 

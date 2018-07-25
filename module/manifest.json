@@ -1,5 +1,5 @@
 {
-    "changes": "* Only use this version with the v2.7 betas\n* `fullscreen` config section deprecated in favor of new config section: `statusbar`\n* Android 'P' support",
+    "changes": "* Only use this version with the v2.7 betas\n* `fullscreen` config section deprecated in favor of new config section: `statusbar`\n* New API method: `setStatusBarStyle`\n* New config option: `display.statusbar.ios.style`\n* Android 'P' support",
     "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
     "min_platform_version": "v2.7.1beta-1",
     "namespace": "display",

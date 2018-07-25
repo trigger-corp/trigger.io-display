@@ -29,6 +29,10 @@ Hidden
 Transparent
 :   Sets iOS status bar transparency.
 
+Style
+:  Sets the status bar style on iOS, `default` will use black text, `light_content` will use white text.
+
+
 ### Orientations
 
 iPhone, iPad, Android
@@ -61,6 +65,13 @@ limitations while your app is running with the following API.
 !param: color `array` an array of three integers in the range [0,255] that make up the RGB color of the topbar. For example, opaque red is [255, 0, 0].
 !param: success `function(value)` callback to be invoked when no errors occur
 !param: error `function(content)` called with details of any error which may occur
+
+!method: forge.topbar.setStatusBarStyle(style, success, error)
+!platforms: iOS
+!param: style `string` either ``"default`` or ``"light_content"``.
+!param: success `function()` callback to be invoked when no errors occur
+!param: error `function(content)` called with details of any error which may occur
+!description: Set the status bar style on iOS, `default` will use black text, `light_content` will use white text.
 
 !method: forge.display.orientation.forceLandscape(success, error)
 !param: success `function(value)` callback to be invoked when no errors occur

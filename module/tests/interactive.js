@@ -29,6 +29,44 @@ asyncTest("Status bar visible", 1, function() {
     });
 });
 
+if (forge.is.ios()) {
+    asyncTest("Set status bar style, iOS", 1, function() {
+        forge.display.setStatusBarStyle("light_content", function () {
+            askQuestion("Status bar should be black with white text", {
+                Yes: function () {
+                    ok(true, "User claims success");
+                    start();
+                },
+                No: function () {
+                    ok(false, "User claims failure");
+                    start();
+                }
+            });
+        }, function () {
+            ok(true, "Not available");
+            start();
+        });
+    });
+
+    asyncTest("Set status bar style, iOS", 1, function() {
+        forge.display.setStatusBarStyle("default", function () {
+            askQuestion("Status bar should be white with black text", {
+                Yes: function () {
+                    ok(true, "User claims success");
+                    start();
+                },
+                No: function () {
+                    ok(false, "User claims failure");
+                    start();
+                }
+            });
+        }, function () {
+            ok(true, "Not available");
+            start();
+        });
+    });
+}
+
 if (forge.is.android()) {
     asyncTest("Set status bar background color from module config", 1, function() {
         askQuestion("Is the status bar red?", {
@@ -85,6 +123,7 @@ asyncTest("Status bar opaque", 1, function() {
         });
     });
 });
+
 
 asyncTest("Wake lock enabled", 1, function() {
     forge.display.enableWakeLock(function () {

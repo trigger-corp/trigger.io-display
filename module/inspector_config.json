@@ -10,7 +10,8 @@
                 },
                 "ios": {
                     "hidden": true,
-                    "transparent": true
+                    "transparent": true,
+                    "style": "default"
                 }
             },
             "orientations": {

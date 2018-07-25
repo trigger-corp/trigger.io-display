@@ -92,6 +92,12 @@
                             "required": false,
                             "type": "boolean",
                             "description": "Sets iOS status bar transparency."
+                        },
+                        "style": {
+                            "description": "Initial style of the iOS status bar when the app is loaded.",
+                            "required": false,
+                            "type": "string",
+                            "enum": [ "default", "light_content", "UIStatusBarStyleDefault", "UIStatusBarStyleLightContent" ]
                         }
                     }
                 },

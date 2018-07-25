@@ -28,5 +28,8 @@ forge['display'] = {
     },
     'setStatusBarTransparent': function (transparent, success, error) {
         forge.internal.call("layout.setStatusBarTransparent", {transparent: transparent}, success, error);
+    },
+    'setStatusBarStyle': function (style, success, error) {
+        forge.internal.call("layout.setStatusBarStyle", {style: style}, success, error);
     }
 };
