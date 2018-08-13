@@ -62,11 +62,11 @@ limitations while your app is running with the following API.
 !method: forge.display.setStatusBarColor(color, success, error)
 !description: Set status bar color on supported devices.
 !platforms: Android 5.0+
-!param: color `array` an array of three integers in the range [0,255] that make up the RGB color of the topbar. For example, opaque red is [255, 0, 0].
+!param: color `array` an array of three integers in the range [0,255] that make up the RGB color of the statusbar. For example, opaque red is [255, 0, 0].
 !param: success `function(value)` callback to be invoked when no errors occur
 !param: error `function(content)` called with details of any error which may occur
 
-!method: forge.topbar.setStatusBarStyle(style, success, error)
+!method: forge.display.setStatusBarStyle(style, success, error)
 !platforms: iOS
 !param: style `string` either ``"default`` or ``"light_content"``.
 !param: success `function()` callback to be invoked when no errors occur
