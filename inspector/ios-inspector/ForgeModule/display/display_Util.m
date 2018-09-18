@@ -14,7 +14,7 @@ NSString *allowedOrientations = nil;
 + (BOOL)isAllowedOrientation:(NSString *)orientation {
 	if (allowedOrientations == nil) {
 		NSDictionary *config = [[ForgeApp sharedApp] configForPlugin:@"display"];
-		if ([ForgeViewController isIPad]) {
+		if ([ForgeUtil isIpad]) {
 			allowedOrientations = [[config objectForKey:@"orientations"] objectForKey:@"ipad"];
 		} else {
 			allowedOrientations = [[config objectForKey:@"orientations"] objectForKey:@"iphone"];
