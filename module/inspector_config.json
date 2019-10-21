@@ -10,7 +10,7 @@
                 },
                 "ios": {
                     "hidden": true,
-                    "transparent": true,
+                    "transparent": false,
                     "style": "default"
                 }
             },

@@ -41,6 +41,12 @@
 		NSString *style = [[[config objectForKey:@"statusbar"] objectForKey:@"ios"] objectForKey:@"style"];
 		if ([style isEqualToString:@"light_content"] || [style isEqualToString:@"UIStatusBarStyleLightContent"]) {
 			ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleLightContent;
+		} else if ([style isEqualToString:@"dark_content"] ||[style isEqualToString:@"UIStatusBarStyleDarkContent"]) {
+			if (@available(iOS 13.0, *)) {
+				ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleDarkContent;
+			} else {
+				ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleDefault;
+			}
 		} else if ([style isEqualToString:@"default"] ||[style isEqualToString:@"UIStatusBarStyleDefault"]) {
 			ForgeApp.sharedApp.viewController.statusBarStyle = UIStatusBarStyleDefault;
 		}

@@ -30,7 +30,7 @@ Transparent
 :   Sets iOS status bar transparency.
 
 Style
-:  Sets the status bar style on iOS, `default` will use black text, `light_content` will use white text.
+:  Sets the status bar style on iOS: `UIStatusBarStyleDefault` will use black text if iOS dark mode is disabled. If dark mode is enabled the text color will be controlled by iOS. `UIStatusBarStyleLightContent` will use light text. `UIStatusBarStyleDarkContent` will use dark text irrespective of iOS dark mode settings.
 
 
 ### Orientations

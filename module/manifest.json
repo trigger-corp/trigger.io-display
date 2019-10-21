@@ -1,8 +1,8 @@
 {
-    "changes": "* `fullscreen` config section deprecated in favor of new config section: `statusbar`\n* New API method: `setStatusBarStyle`\n* New config option: `display.statusbar.ios.style`\n* Android 'P' support",
+    "changes": "* Add new value for `forge.display.setStatusBarStyle` on iOS: `dark_content`",
     "description": "Configure display behaviour, like rotation and fullscreen, for your app.\n\nThis module also let you programmatically access and set device specific display options.",
-    "min_platform_version": "v2.7.1",
+    "min_platform_version": "v2.8.2",
     "namespace": "display",
-    "platform_version": "v2.7.1",
-    "version": "2.11"
+    "platform_version": "v2.8.2",
+    "version": "2.12"
 }

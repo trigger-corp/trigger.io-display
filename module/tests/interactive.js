@@ -30,9 +30,9 @@ asyncTest("Status bar visible", 1, function() {
 });
 
 if (forge.is.ios()) {
-    asyncTest("Set status bar style, iOS", 1, function() {
-        forge.display.setStatusBarStyle("light_content", function () {
-            askQuestion("Status bar should be black with white text", {
+    asyncTest("Set status bar style UIStatusBarStyleLightContent, iOS", 1, function() {
+        forge.display.setStatusBarStyle("UIStatusBarStyleLightContent", function () {
+            askQuestion("Status bar should use light text", {
                 Yes: function () {
                     ok(true, "User claims success");
                     start();
@@ -48,9 +48,27 @@ if (forge.is.ios()) {
         });
     });
 
-    asyncTest("Set status bar style, iOS", 1, function() {
-        forge.display.setStatusBarStyle("default", function () {
-            askQuestion("Status bar should be white with black text", {
+    asyncTest("Set status bar style UIStatusBarStyleDarkContent, iOS", 1, function() {
+        forge.display.setStatusBarStyle("UIStatusBarStyleDarkContent", function () {
+            askQuestion("Status bar should use dark text", {
+                Yes: function () {
+                    ok(true, "User claims success");
+                    start();
+                },
+                No: function () {
+                    ok(false, "User claims failure");
+                    start();
+                }
+            });
+        }, function () {
+            ok(true, "Not available");
+            start();
+        });
+    });
+
+    asyncTest("Set status bar style UIStatusBarStyleDefault, iOS", 1, function() {
+        forge.display.setStatusBarStyle("UIStatusBarStyleDefault", function () {
+            askQuestion("Status bar should use a text color appropriate for dark mode", {
                 Yes: function () {
                     ok(true, "User claims success");
                     start();
