@@ -4,12 +4,12 @@
         "config": {
             "statusbar": {
                 "android": {
-                    "hidden": true,
+                    "hidden": false,
                     "transparent": false,
                     "background-color": "#ff0000"
                 },
                 "ios": {
-                    "hidden": true,
+                    "hidden": false,
                     "transparent": false,
                     "style": "default"
                 }
@@ -22,13 +22,8 @@
         }
     },
     "core": {
-        "general": {
-            "ios": {
-                "adjust_content_insets": "always"
-            },
-            "android": {
-                "adjust_content_insets": "always"
-            }
+        "android": {
+            "viewport_fit": "auto"
         }
     }
 }
