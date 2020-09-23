@@ -4,7 +4,7 @@ module("forge.display");
 
 
 asyncTest("Initial state of status bar", 1, function() {
-    askQuestion("Is the status bar hidden?", {
+    askQuestion("Is the status bar visible?", {
         Yes: function () {
             ok(true, "User claims success");
             start();
@@ -12,6 +12,20 @@ asyncTest("Initial state of status bar", 1, function() {
             ok(false, "User claims failure");
             start();
         }
+    });
+});
+
+asyncTest("Status bar hidden", 1, function() {
+    forge.display.setStatusBarHidden(true, function () {
+        askQuestion("Is the status bar hidden?", {
+            Yes: function () {
+                ok(true, "User claims success");
+                start();
+            }, No: function () {
+                ok(false, "User claims failure");
+                start();
+            }
+        });
     });
 });
 
