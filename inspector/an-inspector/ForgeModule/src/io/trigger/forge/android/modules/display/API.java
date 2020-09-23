@@ -1,17 +1,12 @@
 package io.trigger.forge.android.modules.display;
 
-import com.google.gson.JsonArray;
+import android.content.pm.ActivityInfo;
+import android.os.Build;
+import android.view.WindowManager;
 
 import io.trigger.forge.android.core.ForgeApp;
 import io.trigger.forge.android.core.ForgeParam;
 import io.trigger.forge.android.core.ForgeTask;
-import io.trigger.forge.android.core.ForgeViewController;
-
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class API {
     public static void orientation_forcePortrait(final ForgeTask task) {
